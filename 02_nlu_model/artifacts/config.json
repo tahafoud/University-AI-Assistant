@@ -1,0 +1,13 @@
+{
+  "vocab_size": 34,
+  "num_classes": 20,
+  "emb_dim": 64,
+  "conv_ch": 64,
+  "kernels": [
+    3,
+    5
+  ],
+  "hidden": 96,
+  "dropout": 0.35,
+  "max_len": 64
+}

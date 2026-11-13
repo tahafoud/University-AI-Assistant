@@ -1,0 +1,6 @@
+telethon>=1.36
+easyocr>=1.7
+opencv-python-headless>=4.9
+numpy
+python-dotenv
+# EasyOCR needs PyTorch: pip install torch (CPU build is enough)

@@ -1,0 +1,31 @@
+name: university_ai_chat
+description: University AI chatbot - offline-first, on-device intent model (ONNX).
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  provider: ^6.1.2
+  sqflite: ^2.3.3
+  path: ^1.9.0
+  shared_preferences: ^2.2.3
+  http: ^1.2.1
+  crypto: ^3.0.3
+  onnxruntime: ^1.4.1   # check pub.dev for the latest version
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/knowledge.json
+    - assets/model/

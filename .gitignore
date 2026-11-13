@@ -1,0 +1,67 @@
+.env
+*.session
+*.session-journal
+__pycache__/
+*.pyc
+01_telegram_ingest/data/media/
+01_telegram_ingest/data/*.db
+unanswered_queries.json
+*.jks
+key.properties
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Build files
+build/
+dist/
+
+# IDE
+.idea/
+.vscode/
+
+# Secrets
+*.pem
+*.key
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Databases and private data
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.sqlite-journal
+
+# Private Telegram data
+*.session
+*.session-journal
+
+# Private backups
+**/backup/
+**/backups/
+
+# Never upload environment files
+.env
+.env.*
+**/.env
+**/.env.*

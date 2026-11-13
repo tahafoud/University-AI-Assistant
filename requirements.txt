@@ -1,0 +1,14 @@
+# --- التشغيل الأساسي (يعمل بلا إنترنت) ---
+numpy
+onnxruntime>=1.18
+streamlit>=1.35
+python-dotenv
+# --- تدريب النموذج (02_nlu_model) ---
+torch>=2.1
+onnx>=1.16
+# --- جلب إعلانات تيليجرام (01_telegram_ingest) ---
+telethon>=1.36
+easyocr>=1.7
+opencv-python-headless>=4.9
+# --- اختياري: الاسترجاع الدلالي ---
+# sentence-transformers>=3.0

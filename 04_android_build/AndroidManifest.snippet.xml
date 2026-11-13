@@ -1,0 +1,11 @@
+<!-- android/app/src/main/AndroidManifest.xml -->
+<!-- (a) Release builds DO NOT include INTERNET by default. Without it, announcement
+         sync works in `flutter run` (debug) but silently fails in the APK. -->
+<uses-permission android:name="android.permission.INTERNET"/>
+
+<application
+    android:label="المساعد الجامعي"
+    android:networkSecurityConfig="@xml/network_security_config"
+    ... >
+    <!-- keep the generated android:name / icon / activity as they are -->
+</application>

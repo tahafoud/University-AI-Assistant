@@ -1,0 +1,47 @@
+// ---- android/app/build.gradle.kts : merge these parts into the generated file ----
+// (Older Flutter templates use build.gradle with Groovy - same idea, see BUILD_APK.md)
+
+import java.io.FileInputStream
+import java.util.Properties
+
+// 1) at the top of the file, after the plugins { } block:
+val keystoreProperties = Properties()
+val keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    // 2) your own unique id (cannot be changed after publishing):
+    namespace = "edu.university.aichat"
+    defaultConfig {
+        applicationId = "edu.university.aichat"
+        minSdk = 24            // onnxruntime needs a modern minSdk
+        // keep targetSdk / versionCode / versionName as generated (flutter.*)
+    }
+
+    // 3) release signing (falls back to debug key when key.properties is absent):
+    signingConfigs {
+        create("release") {
+            if (keystorePropertiesFile.exists()) {
+                keyAlias = keystoreProperties["keyAlias"] as String
+                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = file(keystoreProperties["storeFile"] as String)
+                storePassword = keystoreProperties["storePassword"] as String
+            }
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig = if (keystorePropertiesFile.exists())
+                signingConfigs.getByName("release") else signingConfigs.getByName("debug")
+
+            // First build: keep these OFF (safest). Enable later ONLY after testing
+            // a release APK on a real phone (R8 can break native/JNI libraries).
+            isMinifyEnabled = false
+            isShrinkResources = false
+            // When enabling minify, also add:
+            // proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+}
